@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:alpine
+    container_name: tsm_db
+    ports:
+      - '5444:5432'
+    environment:
+      POSTGIS_GDAL_ENABLED_DRIVERS: ENABLE_ALL
+      POSTGRES_DB: tsm
+      POSTGRES_USER: noha
+      POSTGRES_PASSWORD: S3cret
+      POSTGRES_HOST: localhost
+      POSTGRES_PORT: 5432
