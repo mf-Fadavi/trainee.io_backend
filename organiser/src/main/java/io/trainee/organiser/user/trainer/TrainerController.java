@@ -4,11 +4,16 @@ import io.trainee.organiser.user.trainer.dto.CreateTrainer;
 import io.trainee.organiser.user.trainer.dto.UpdateTrainer;
 import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.Link;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.Collection;
 import java.util.UUID;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
 @RequestMapping("api/trainer")
@@ -18,17 +23,25 @@ public class TrainerController {
     private TrainerService trainerService;
 
     @GetMapping("/list")
-    public List<TrainerEntity> findAll() {
-        return trainerService.findAll();
+    public ResponseEntity<Collection<TrainerEntity>> findAll() {
+        var trainers = trainerService.findAll();
+        trainers.forEach(trainer -> {
+            trainer.add(linkTo(methodOn(TrainerController.class).findOneById(trainer.getId())).withSelfRel());
+        });
+        Link allTrainersLink = linkTo(methodOn(TrainerController.class).findAll()).withSelfRel();
+        return ResponseEntity.ok(CollectionModel.of(trainers, allTrainersLink).getContent());
     }
 
     @GetMapping("/{id}")
-    public Optional<TrainerEntity> findOneById(@PathVariable("id")UUID trainerID) {
-        return trainerService.findOneById(trainerID);
+    public ResponseEntity<TrainerEntity> findOneById(@PathVariable("id")UUID trainerID) {
+        return  trainerService.findOneById(trainerID).map(trainer -> {
+            trainer.add(linkTo(methodOn((TrainerController.class)).findAll()).withRel("trainer_list"));
+            return ResponseEntity.ok(trainer);
+        }).orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping("/create")
-    public CreateTrainer createOne(@RequestBody() CreateTrainer trainerInfo) {
+    public TrainerEntity createOne(@RequestBody() CreateTrainer trainerInfo) {
         return trainerService.createOne(trainerInfo);
     }
 

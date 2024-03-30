@@ -23,8 +23,8 @@ public class TrainerService {
         return trainerRepository.findById(trainerId);
     }
 
-    public CreateTrainer createOne(CreateTrainer trainerInfo) {
-        return trainerRepository.save(trainerInfo);
+    public TrainerEntity createOne(CreateTrainer trainerInfo) {
+        return trainerRepository.save(mapDtoToEntity(trainerInfo));
     }
 
     public UpdateTrainer updateOne(UpdateTrainer trainerInfo) {
@@ -33,5 +33,12 @@ public class TrainerService {
 
     public void deleteOne(UUID trainerId) {
         trainerRepository.deleteById(trainerId);
+    }
+
+    private TrainerEntity mapDtoToEntity(CreateTrainer createTrainerDto) {
+        var trainerEntity = new TrainerEntity();
+        trainerEntity.setFirstName(createTrainerDto.firstName());
+        trainerEntity.setLastName(createTrainerDto.lastName());
+        return trainerEntity;
     }
 }
