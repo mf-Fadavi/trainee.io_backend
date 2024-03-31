@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.UUID;
 
 public interface SupervisorRepository extends JpaRepository<SupervisorEntity, UUID> {
-    public UpdateSupervisor save(UpdateSupervisor supervisorInfo);
-    public CreateSupervisor save(CreateSupervisor supervisorInfo);
+    UpdateSupervisor save(UpdateSupervisor supervisorInfo);
+    CreateSupervisor save(CreateSupervisor supervisorInfo);
 }

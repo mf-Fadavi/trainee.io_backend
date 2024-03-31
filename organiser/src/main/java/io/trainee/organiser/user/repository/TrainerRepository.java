@@ -9,6 +9,6 @@ import java.util.UUID;
 
 public interface TrainerRepository extends JpaRepository<TrainerEntity, UUID> {
 
-    public UpdateTrainer save(UpdateTrainer trainerInfo);
-    public CreateTrainer save(CreateTrainer trainerInfo);
+    UpdateTrainer save(UpdateTrainer trainerInfo);
+    CreateTrainer save(CreateTrainer trainerInfo);
 }

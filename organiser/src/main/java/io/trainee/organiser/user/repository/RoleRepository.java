@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.UUID;
 
 public interface RoleRepository extends JpaRepository<RoleEntity, UUID> {
-    public UpdateRole save(UpdateRole role);
-    public CreateRole save(CreateRole role);
+    UpdateRole save(UpdateRole role);
+    CreateRole save(CreateRole role);
 }

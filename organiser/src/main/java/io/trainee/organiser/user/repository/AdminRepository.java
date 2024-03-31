@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.UUID;
 
 public interface AdminRepository extends JpaRepository<AdminEntity, UUID> {
-    public UpdateAdmin save(UpdateAdmin adminInfo);
-    public CreateAdmin save(CreateAdmin adminInfo);
+    UpdateAdmin save(UpdateAdmin adminInfo);
+    CreateAdmin save(CreateAdmin adminInfo);
 }
