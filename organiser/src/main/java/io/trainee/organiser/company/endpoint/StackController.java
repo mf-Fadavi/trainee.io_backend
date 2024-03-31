@@ -1,9 +1,9 @@
-package io.trainee.organiser.company.stack.topic;
+package io.trainee.organiser.company.endpoint;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/topic")
-public class TopicController {
+@RequestMapping("api/v1")
+public class StackController {
 }

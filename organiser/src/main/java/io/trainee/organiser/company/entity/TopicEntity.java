@@ -1,4 +1,4 @@
-package io.trainee.organiser.company.stack;
+package io.trainee.organiser.company.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import java.util.UUID;
 
 @Entity
-public class StackEntity {
+public class TopicEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
