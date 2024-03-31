@@ -4,6 +4,7 @@ import io.trainee.organiser.user.entity.SupervisorEntity;
 import io.trainee.organiser.user.repository.SupervisorRepository;
 import io.trainee.organiser.user.request.CreateSupervisor;
 import io.trainee.organiser.user.request.UpdateSupervisor;
+import io.trainee.organiser.user.service.ISupervisorService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
-public class SupervisorService {
+public class SupervisorService implements ISupervisorService {
 
     private SupervisorRepository supervisorRepository;
     public List<SupervisorEntity> findAll() {

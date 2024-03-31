@@ -4,6 +4,7 @@ import io.trainee.organiser.user.entity.RoleEntity;
 import io.trainee.organiser.user.repository.RoleRepository;
 import io.trainee.organiser.user.request.CreateRole;
 import io.trainee.organiser.user.request.UpdateRole;
+import io.trainee.organiser.user.service.IRoleService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
-public class RoleService {
+public class RoleService implements IRoleService {
     private RoleRepository roleRepository;
     public List<RoleEntity> findAll() {
         return roleRepository.findAll();

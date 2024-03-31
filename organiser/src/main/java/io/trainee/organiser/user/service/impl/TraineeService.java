@@ -4,6 +4,7 @@ import io.trainee.organiser.user.entity.TraineeEntity;
 import io.trainee.organiser.user.repository.TraineeRepository;
 import io.trainee.organiser.user.request.CreateTrainee;
 import io.trainee.organiser.user.request.UpdateTrainee;
+import io.trainee.organiser.user.service.ITraineeService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
-public class TraineeService {
+public class TraineeService implements ITraineeService {
     private TraineeRepository traineeRepository;
 
     public List<TraineeEntity> findAll() {

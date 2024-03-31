@@ -4,6 +4,7 @@ import io.trainee.organiser.user.entity.TrainerEntity;
 import io.trainee.organiser.user.repository.TrainerRepository;
 import io.trainee.organiser.user.request.CreateTrainer;
 import io.trainee.organiser.user.request.UpdateTrainer;
+import io.trainee.organiser.user.service.ITrainerService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ import java.util.UUID;
 
 @Service
 @AllArgsConstructor
-public class TrainerService {
+public class TrainerService implements ITrainerService {
 
     private TrainerRepository trainerRepository;
 
