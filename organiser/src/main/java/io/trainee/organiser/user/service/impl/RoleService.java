@@ -16,22 +16,28 @@ import java.util.UUID;
 @AllArgsConstructor
 public class RoleService implements IRoleService {
     private RoleRepository roleRepository;
+
+    @Override
     public List<RoleEntity> findAll() {
         return roleRepository.findAll();
     }
 
+    @Override
     public Optional<RoleEntity> findOneById(UUID roleId) {
         return roleRepository.findById(roleId);
     }
 
+    @Override
     public CreateRole createOne(CreateRole role) {
         return roleRepository.save(role);
     }
 
+    @Override
     public UpdateRole updateOne(UpdateRole role) {
         return roleRepository.save(role);
     }
 
+    @Override
     public void deleteOne(UUID roleId) {
         roleRepository.deleteById(roleId);
     }

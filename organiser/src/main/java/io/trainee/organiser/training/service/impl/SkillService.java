@@ -18,22 +18,27 @@ public class SkillService implements ISkillService {
 
     private SkillRepository skillRepository;
 
+    @Override
     public List<SkillEntity> findAll() {
         return skillRepository.findAll();
     }
 
+    @Override
     public Optional<SkillEntity> findOneById(UUID skillId) {
         return skillRepository.findById(skillId);
     }
 
+    @Override
     public CreateSkill createOne(CreateSkill skill) {
         return skillRepository.save(skill);
     }
 
+    @Override
     public UpdateSkill updateOne(UpdateSkill skill) {
         return skillRepository.save(skill);
     }
 
+    @Override
     public void deleteOne(UUID skillId) {
         skillRepository.deleteById(skillId);
     }

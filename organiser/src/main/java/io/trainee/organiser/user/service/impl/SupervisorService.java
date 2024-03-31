@@ -17,22 +17,28 @@ import java.util.UUID;
 public class SupervisorService implements ISupervisorService {
 
     private SupervisorRepository supervisorRepository;
+
+    @Override
     public List<SupervisorEntity> findAll() {
         return supervisorRepository.findAll();
     }
 
+    @Override
     public Optional<SupervisorEntity> findOneById(UUID supervisorId) {
         return supervisorRepository.findById(supervisorId);
     }
 
+    @Override
     public CreateSupervisor createOne(CreateSupervisor supervisorInfo) {
         return supervisorRepository.save(supervisorInfo);
     }
 
+    @Override
     public UpdateSupervisor updateOne(UpdateSupervisor supervisorInfo) {
         return supervisorRepository.save(supervisorInfo);
     }
 
+    @Override
     public void deleteOne(UUID supervisorId) {
         supervisorRepository.deleteById(supervisorId);
     }

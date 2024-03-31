@@ -14,23 +14,28 @@ import java.util.UUID;
 @AllArgsConstructor
 public class AdminService implements IAdminService {
     private AdminRepository adminRepository;
-
+    @Override
     public List<AdminEntity> findAll() {
         return adminRepository.findAll();
     }
+
+    @Override
 
     public Optional<AdminEntity> findOneById(UUID adminId) {
         return adminRepository.findById(adminId);
     }
 
+    @Override
     public AdminEntity createOne(AdminEntity adminInfo) {
         return adminRepository.save(adminInfo);
     }
 
+    @Override
     public AdminEntity updateOne(AdminEntity adminInfo) {
         return adminRepository.save(adminInfo);
     }
 
+    @Override
     public void deleteOne(UUID adminId) {
         adminRepository.deleteById(adminId);
     }

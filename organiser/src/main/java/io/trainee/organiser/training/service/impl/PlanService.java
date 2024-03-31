@@ -18,22 +18,27 @@ public class PlanService implements IPlanService {
 
     private PlanRepository planRepository;
 
+    @Override
     public List<PlanEntity> findAll() {
         return planRepository.findAll();
     }
 
+    @Override
     public Optional<PlanEntity> findOneById(UUID roadmapId) {
         return planRepository.findById(roadmapId);
     }
 
+    @Override
     public CreatePlan createOne(CreatePlan roadmap) {
         return planRepository.save(roadmap);
     }
 
+    @Override
     public UpdatePlan updateOne(UpdatePlan roadmap) {
         return planRepository.save(roadmap);
     }
 
+    @Override
     public void deleteOne(UUID roadmapId) {
         planRepository.deleteById(roadmapId);
     }
