@@ -1,4 +1,4 @@
-package io.trainee.organiser.assessment;
+package io.trainee.organiser.assessment.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

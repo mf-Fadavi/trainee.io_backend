@@ -1,4 +1,4 @@
-package io.trainee.organiser.assessment;
+package io.trainee.organiser.assessment.endpoint;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
