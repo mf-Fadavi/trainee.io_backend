@@ -1,6 +1,6 @@
 package io.trainee.organiser.user.endpoint;
 
-import io.trainee.organiser.user.constant.UserConstants;
+import io.trainee.organiser.user.constant.UserUrlConstants;
 import io.trainee.organiser.user.entity.AdminEntity;
 import io.trainee.organiser.user.service.impl.AdminService;
 import jakarta.websocket.server.PathParam;
@@ -17,17 +17,17 @@ import java.util.UUID;
 public class AdminController {
     private AdminService adminService;
 
-    @GetMapping(UserConstants.ADMIN_URL)
+    @GetMapping(UserUrlConstants.ADMIN_URL)
     public List<AdminEntity> findAll() {
         return adminService.findAll();
     }
 
-    @GetMapping(UserConstants.ADMIN_URL + UserConstants.ADMIN_ID)
+    @GetMapping(UserUrlConstants.ADMIN_URL + UserUrlConstants.ADMIN_ID)
     public Optional<AdminEntity> findOneById(@PathVariable("id") UUID adminId) {
         return adminService.findOneById(adminId);
     }
 
-    @PostMapping(UserConstants.ADMIN_URL)
+    @PostMapping(UserUrlConstants.ADMIN_URL)
     public AdminEntity createOne(@RequestBody() AdminEntity adminInfo) {
         return adminService.createOne(adminInfo);
     }
