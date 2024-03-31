@@ -1,8 +1,9 @@
-package io.trainee.organiser.user.account;
+package io.trainee.organiser.user.endpoint;
 
-import io.trainee.organiser.user.account.AccountEntity;
-import io.trainee.organiser.user.account.dto.CreateAccount;
-import io.trainee.organiser.user.account.dto.UpdateAccount;
+import io.trainee.organiser.user.entity.AccountEntity;
+import io.trainee.organiser.user.service.AccountService;
+import io.trainee.organiser.user.dto.CreateAccount;
+import io.trainee.organiser.user.dto.UpdateAccount;
 import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;

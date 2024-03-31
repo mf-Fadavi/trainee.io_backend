@@ -1,4 +1,4 @@
-package io.trainee.organiser.user.account;
+package io.trainee.organiser.user.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

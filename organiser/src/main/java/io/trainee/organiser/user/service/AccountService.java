@@ -1,8 +1,9 @@
-package io.trainee.organiser.user.account;
+package io.trainee.organiser.user.service;
 
-import io.trainee.organiser.user.account.AccountEntity;
-import io.trainee.organiser.user.account.dto.CreateAccount;
-import io.trainee.organiser.user.account.dto.UpdateAccount;
+import io.trainee.organiser.user.entity.AccountEntity;
+import io.trainee.organiser.user.dto.CreateAccount;
+import io.trainee.organiser.user.dto.UpdateAccount;
+import io.trainee.organiser.user.repository.AccountRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

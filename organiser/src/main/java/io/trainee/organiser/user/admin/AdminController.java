@@ -12,32 +12,32 @@ import java.util.Optional;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("api/admin")
+@RequestMapping("/api/v1")
 @AllArgsConstructor
 public class AdminController {
     private AdminService adminService;
 
-    @GetMapping("/list")
+    @GetMapping(UserConstants.ADMIN_URL)
     public List<AdminEntity> findAll() {
         return adminService.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(UserConstants.ADMIN_URL + UserConstants.ADMIN_ID)
     public Optional<AdminEntity> findOneById(@PathVariable("id") UUID adminId) {
         return adminService.findOneById(adminId);
     }
 
-    @PostMapping("/create")
+    @PostMapping(UserConstants.ADMIN_URL)
     public CreateAdmin createOne(@RequestBody() CreateAdmin adminInfo) {
         return adminService.createOne(adminInfo);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/admins/{id}")
     public UpdateAdmin updateOne(@RequestBody() UpdateAdmin adminInfo) {
         return adminService.updateOne(adminInfo);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/admins/{id}")
     public void deleteOne(@PathParam("id") UUID adminId) {
         adminService.deleteOne(adminId);
     }

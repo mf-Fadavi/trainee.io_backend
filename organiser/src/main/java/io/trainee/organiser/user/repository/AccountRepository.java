@@ -1,7 +1,8 @@
-package io.trainee.organiser.user.account;
+package io.trainee.organiser.user.repository;
 
-import io.trainee.organiser.user.account.dto.CreateAccount;
-import io.trainee.organiser.user.account.dto.UpdateAccount;
+import io.trainee.organiser.user.dto.CreateAccount;
+import io.trainee.organiser.user.dto.UpdateAccount;
+import io.trainee.organiser.user.entity.AccountEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;
