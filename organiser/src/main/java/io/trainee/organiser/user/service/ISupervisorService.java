@@ -1,8 +1,8 @@
 package io.trainee.organiser.user.service;
 
 import io.trainee.organiser.user.entity.SupervisorEntity;
-import io.trainee.organiser.user.request.CreateSupervisor;
-import io.trainee.organiser.user.request.UpdateSupervisor;
+import io.trainee.organiser.user.request.CreateSupervisorRequest;
+import io.trainee.organiser.user.request.UpdateSupervisorRequest;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,9 +12,9 @@ public interface ISupervisorService {
     List<SupervisorEntity> findAll();
     Optional<SupervisorEntity> findOneById(UUID supervisorId);
 
-    CreateSupervisor createOne(CreateSupervisor supervisorInfo);
+    CreateSupervisorRequest createOne(CreateSupervisorRequest supervisorInfo);
 
-    UpdateSupervisor updateOne(UpdateSupervisor supervisorInfo);
+    UpdateSupervisorRequest updateOne(UpdateSupervisorRequest supervisorInfo);
 
     void deleteOne(UUID supervisorId);
 }

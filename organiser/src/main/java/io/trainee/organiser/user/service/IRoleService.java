@@ -1,8 +1,8 @@
 package io.trainee.organiser.user.service;
 
 import io.trainee.organiser.user.entity.RoleEntity;
-import io.trainee.organiser.user.request.CreateRole;
-import io.trainee.organiser.user.request.UpdateRole;
+import io.trainee.organiser.user.request.CreateRoleRequest;
+import io.trainee.organiser.user.response.RoleView;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,9 +14,9 @@ public interface IRoleService {
 
     Optional<RoleEntity> findOneById(UUID roleId);
 
-    CreateRole createOne(CreateRole role);
+    Optional<RoleEntity> findOneByName(String roleName);
 
-    UpdateRole updateOne(UpdateRole role);
+    RoleView createOne(CreateRoleRequest role);
 
     void deleteOne(UUID roleId);
 }

@@ -1,8 +1,8 @@
 package io.trainee.organiser.user.service;
 
 import io.trainee.organiser.user.entity.TrainerEntity;
-import io.trainee.organiser.user.request.CreateTrainer;
-import io.trainee.organiser.user.request.UpdateTrainer;
+import io.trainee.organiser.user.request.CreateTrainerRequest;
+import io.trainee.organiser.user.request.UpdateTrainerRequest;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,8 +12,8 @@ public interface ITrainerService {
 
     List<TrainerEntity> findAll();
     Optional<TrainerEntity> findOneById(UUID trainerId);
-    TrainerEntity createOne(CreateTrainer trainerInfo);
+    TrainerEntity createOne(TrainerEntity trainerInfo);
 
-    UpdateTrainer updateOne(UpdateTrainer trainerInfo);
+    UpdateTrainerRequest updateOne(UpdateTrainerRequest trainerInfo);
     void deleteOne(UUID trainerId);
 }

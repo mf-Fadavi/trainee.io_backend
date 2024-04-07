@@ -1,8 +1,9 @@
 package io.trainee.organiser.user.service;
 
 import io.trainee.organiser.user.entity.TraineeEntity;
-import io.trainee.organiser.user.request.CreateTrainee;
-import io.trainee.organiser.user.request.UpdateTrainee;
+import io.trainee.organiser.user.exception.UserNotFoundException;
+import io.trainee.organiser.user.request.CreateTraineeRequest;
+import io.trainee.organiser.user.request.UpdateTraineeRequest;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,7 +13,7 @@ public interface ITraineeService {
 
     List<TraineeEntity> findAll();
     Optional<TraineeEntity> findOneById(UUID traineeId);
-    CreateTrainee createOne(CreateTrainee traineeInfo);
-    UpdateTrainee updateOne(UpdateTrainee traineeInfo);
+    CreateTraineeRequest createOne(CreateTraineeRequest traineeInfo) throws UserNotFoundException;
+    UpdateTraineeRequest updateOne(UpdateTraineeRequest traineeInfo);
     void deleteOne(UUID traineeId);
 }
