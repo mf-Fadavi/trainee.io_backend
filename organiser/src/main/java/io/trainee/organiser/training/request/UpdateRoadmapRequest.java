@@ -1,4 +1,4 @@
 package io.trainee.organiser.training.request;
 
-public record UpdateRoadmap() {
+public record UpdateRoadmapRequest() {
 }

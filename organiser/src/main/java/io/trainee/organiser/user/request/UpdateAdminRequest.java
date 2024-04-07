@@ -1,4 +1,4 @@
 package io.trainee.organiser.user.request;
 
-public class CreateAdmin {
+public class UpdateAdminRequest {
 }

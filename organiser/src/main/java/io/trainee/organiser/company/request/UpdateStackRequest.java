@@ -1,4 +1,4 @@
 package io.trainee.organiser.company.request;
 
-public record UpdateTopic() {
+public record UpdateStackRequest() {
 }

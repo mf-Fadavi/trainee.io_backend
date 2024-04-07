@@ -1,4 +1,4 @@
 package io.trainee.organiser.user.request;
 
-public record CreateSupervisor() {
+public record UpdateTraineeRequest() {
 }

@@ -1,4 +1,4 @@
 package io.trainee.organiser.user.request;
 
-public record UpdateRole() {
+public record UpdateRoleRequest() {
 }
