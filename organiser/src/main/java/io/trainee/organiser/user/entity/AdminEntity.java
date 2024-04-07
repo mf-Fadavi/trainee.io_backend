@@ -1,17 +1,13 @@
 package io.trainee.organiser.user.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.UUID;
-
+@EqualsAndHashCode(callSuper = true)
+@Data
 @Entity
-@AllArgsConstructor
-public class AdminEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+@Table(name = "admin")
+public class AdminEntity extends UserBaseAuditEntity{
 }
