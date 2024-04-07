@@ -1,8 +1,8 @@
 package io.trainee.organiser.training.service.impl;
 
 import io.trainee.organiser.training.entity.PlanEntity;
-import io.trainee.organiser.training.request.CreatePlan;
-import io.trainee.organiser.training.request.UpdatePlan;
+import io.trainee.organiser.training.request.CreatePlanRequest;
+import io.trainee.organiser.training.request.UpdatePlanRequest;
 import io.trainee.organiser.training.repository.PlanRepository;
 import io.trainee.organiser.training.service.IPlanService;
 import lombok.AllArgsConstructor;
@@ -24,22 +24,22 @@ public class PlanService implements IPlanService {
     }
 
     @Override
-    public Optional<PlanEntity> findOneById(UUID roadmapId) {
-        return planRepository.findById(roadmapId);
+    public Optional<PlanEntity> findOneById(UUID planId) {
+        return planRepository.findById(planId);
     }
 
     @Override
-    public CreatePlan createOne(CreatePlan roadmap) {
-        return planRepository.save(roadmap);
+    public CreatePlanRequest createOne(CreatePlanRequest plan) {
+        return planRepository.save(plan);
     }
 
     @Override
-    public UpdatePlan updateOne(UpdatePlan roadmap) {
-        return planRepository.save(roadmap);
+    public UpdatePlanRequest updateOne(UpdatePlanRequest plan) {
+        return planRepository.save(plan);
     }
 
     @Override
-    public void deleteOne(UUID roadmapId) {
-        planRepository.deleteById(roadmapId);
+    public void deleteOne(UUID planId) {
+        planRepository.deleteById(planId);
     }
 }

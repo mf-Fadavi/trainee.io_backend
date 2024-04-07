@@ -2,8 +2,8 @@ package io.trainee.organiser.user.service.impl;
 
 import io.trainee.organiser.user.entity.SupervisorEntity;
 import io.trainee.organiser.user.repository.SupervisorRepository;
-import io.trainee.organiser.user.request.CreateSupervisor;
-import io.trainee.organiser.user.request.UpdateSupervisor;
+import io.trainee.organiser.user.request.CreateSupervisorRequest;
+import io.trainee.organiser.user.request.UpdateSupervisorRequest;
 import io.trainee.organiser.user.service.ISupervisorService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -29,12 +29,12 @@ public class SupervisorService implements ISupervisorService {
     }
 
     @Override
-    public CreateSupervisor createOne(CreateSupervisor supervisorInfo) {
+    public CreateSupervisorRequest createOne(CreateSupervisorRequest supervisorInfo) {
         return supervisorRepository.save(supervisorInfo);
     }
 
     @Override
-    public UpdateSupervisor updateOne(UpdateSupervisor supervisorInfo) {
+    public UpdateSupervisorRequest updateOne(UpdateSupervisorRequest supervisorInfo) {
         return supervisorRepository.save(supervisorInfo);
     }
 

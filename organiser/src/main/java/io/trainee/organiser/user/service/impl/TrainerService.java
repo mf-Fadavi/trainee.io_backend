@@ -2,8 +2,9 @@ package io.trainee.organiser.user.service.impl;
 
 import io.trainee.organiser.user.entity.TrainerEntity;
 import io.trainee.organiser.user.repository.TrainerRepository;
-import io.trainee.organiser.user.request.CreateTrainer;
-import io.trainee.organiser.user.request.UpdateTrainer;
+import io.trainee.organiser.user.request.CreateTrainerRequest;
+import io.trainee.organiser.user.request.UpdateTrainerRequest;
+import io.trainee.organiser.user.response.TrainerView;
 import io.trainee.organiser.user.service.ITrainerService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -29,12 +30,12 @@ public class TrainerService implements ITrainerService {
     }
 
     @Override
-    public TrainerEntity createOne(CreateTrainer trainerInfo) {
-        return trainerRepository.save(mapDtoToEntity(trainerInfo));
+    public TrainerEntity createOne(TrainerEntity trainerInfo) {
+        return trainerRepository.save(trainerInfo);
     }
 
     @Override
-    public UpdateTrainer updateOne(UpdateTrainer trainerInfo) {
+    public UpdateTrainerRequest updateOne(UpdateTrainerRequest trainerInfo) {
         return trainerRepository.save(trainerInfo);
     }
 
@@ -43,10 +44,4 @@ public class TrainerService implements ITrainerService {
         trainerRepository.deleteById(trainerId);
     }
 
-    private TrainerEntity mapDtoToEntity(CreateTrainer createTrainerDto) {
-        var trainerEntity = new TrainerEntity();
-        trainerEntity.setFirstName(createTrainerDto.firstName());
-        trainerEntity.setLastName(createTrainerDto.lastName());
-        return trainerEntity;
-    }
 }

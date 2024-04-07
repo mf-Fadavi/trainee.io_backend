@@ -1,9 +1,10 @@
 package io.trainee.organiser.user.service.impl;
 
 import io.trainee.organiser.user.entity.RoleEntity;
+import io.trainee.organiser.user.mapper.RoleMapperImpl;
 import io.trainee.organiser.user.repository.RoleRepository;
-import io.trainee.organiser.user.request.CreateRole;
-import io.trainee.organiser.user.request.UpdateRole;
+import io.trainee.organiser.user.request.CreateRoleRequest;
+import io.trainee.organiser.user.response.RoleView;
 import io.trainee.organiser.user.service.IRoleService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class RoleService implements IRoleService {
     private RoleRepository roleRepository;
+    private RoleMapperImpl roleMapper;
 
     @Override
     public List<RoleEntity> findAll() {
@@ -28,14 +30,17 @@ public class RoleService implements IRoleService {
     }
 
     @Override
-    public CreateRole createOne(CreateRole role) {
-        return roleRepository.save(role);
+    public Optional<RoleEntity> findOneByName(String roleName) {
+        return roleRepository.findOneByName(roleName);
     }
 
     @Override
-    public UpdateRole updateOne(UpdateRole role) {
-        return roleRepository.save(role);
+    public RoleView createOne(CreateRoleRequest createRoleDto) {
+        var roleEntity = roleMapper.toEntity(createRoleDto);
+        roleEntity = roleRepository.save(roleEntity);
+        return roleMapper.toDto(roleEntity);
     }
+
 
     @Override
     public void deleteOne(UUID roleId) {

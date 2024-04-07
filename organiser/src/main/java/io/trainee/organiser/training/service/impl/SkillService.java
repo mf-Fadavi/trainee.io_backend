@@ -2,8 +2,8 @@ package io.trainee.organiser.training.service.impl;
 
 import io.trainee.organiser.training.entity.SkillEntity;
 import io.trainee.organiser.training.repository.SkillRepository;
-import io.trainee.organiser.training.request.CreateSkill;
-import io.trainee.organiser.training.request.UpdateSkill;
+import io.trainee.organiser.training.request.CreateSkillRequest;
+import io.trainee.organiser.training.request.UpdateSkillRequest;
 import io.trainee.organiser.training.service.ISkillService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -29,12 +29,12 @@ public class SkillService implements ISkillService {
     }
 
     @Override
-    public CreateSkill createOne(CreateSkill skill) {
+    public CreateSkillRequest createOne(CreateSkillRequest skill) {
         return skillRepository.save(skill);
     }
 
     @Override
-    public UpdateSkill updateOne(UpdateSkill skill) {
+    public UpdateSkillRequest updateOne(UpdateSkillRequest skill) {
         return skillRepository.save(skill);
     }
 

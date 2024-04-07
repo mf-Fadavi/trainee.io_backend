@@ -1,9 +1,12 @@
 package io.trainee.organiser.user.service.impl;
 
 import io.trainee.organiser.user.entity.TraineeEntity;
+import io.trainee.organiser.user.exception.UserNotFoundException;
+import io.trainee.organiser.user.mapper.TraineeMapperImpl;
 import io.trainee.organiser.user.repository.TraineeRepository;
-import io.trainee.organiser.user.request.CreateTrainee;
-import io.trainee.organiser.user.request.UpdateTrainee;
+import io.trainee.organiser.user.request.CreateTraineeRequest;
+import io.trainee.organiser.user.request.UpdateTraineeRequest;
+import io.trainee.organiser.user.response.TraineeView;
 import io.trainee.organiser.user.service.ITraineeService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,8 +18,10 @@ import java.util.UUID;
 @Service
 @AllArgsConstructor
 public class TraineeService implements ITraineeService {
-    private TraineeRepository traineeRepository;
 
+    private TraineeRepository traineeRepository;
+    private AccountService accountService;
+    private TraineeMapperImpl traineeMapper;
     @Override
     public List<TraineeEntity> findAll() {
         return traineeRepository.findAll();
@@ -28,12 +33,14 @@ public class TraineeService implements ITraineeService {
     }
 
     @Override
-    public CreateTrainee createOne(CreateTrainee traineeInfo) {
-        return traineeRepository.save(traineeInfo);
+    public TraineeView createOne(CreateTraineeRequest traineeInfo) throws UserNotFoundException {
+        var traineeEntity = traineeMapper.toEntity(traineeInfo);
+        traineeEntity = traineeRepository.save(traineeEntity);
+        return traineeMapper.toDto(traineeEntity);
     }
 
     @Override
-    public UpdateTrainee updateOne(UpdateTrainee traineeInfo) {
+    public UpdateTraineeRequest updateOne(UpdateTraineeRequest traineeInfo) {
         return traineeRepository.save(traineeInfo);
     }
 
