@@ -1,6 +1,5 @@
 package io.trainee.organiser.user.request;
 
-import io.trainee.organiser.user.entity.RoleEntity;
 import io.trainee.organiser.validator.EnumValidatorString;
 import io.trainee.organiser.validator.PasswordValidation;
 import io.trainee.organiser.validator.UsernameValidator;
