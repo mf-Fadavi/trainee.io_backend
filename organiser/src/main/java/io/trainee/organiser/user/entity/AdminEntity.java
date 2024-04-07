@@ -9,5 +9,5 @@ import java.util.UUID;
 @Data
 @Entity
 @Table(name = "admin")
-public class AdminEntity extends UserBaseAuditEntity{
+public class AdminEntity extends UserBaseEntity{
 }

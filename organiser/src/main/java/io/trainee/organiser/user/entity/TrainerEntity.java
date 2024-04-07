@@ -1,23 +1,15 @@
 package io.trainee.organiser.user.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.hateoas.RepresentationModel;
 
 import java.util.UUID;
 
-@Entity
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class TrainerEntity extends RepresentationModel<TrainerEntity>{
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
-
-    private String firstName;
-
-    private String lastName;
+@Entity
+@Table(name = "trainer")
+public class TrainerEntity extends UserBaseEntity{
 }
