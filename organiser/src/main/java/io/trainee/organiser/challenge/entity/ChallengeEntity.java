@@ -1,4 +1,4 @@
-package io.trainee.organiser.challenge;
+package io.trainee.organiser.challenge.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
