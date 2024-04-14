@@ -1,4 +1,4 @@
-package io.trainee.organiser.asspect;
+package io.trainee.organiser.common.asspect;
 
 import io.trainee.organiser.user.exception.UserNotFoundException;
 import lombok.AllArgsConstructor;
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -47,5 +48,10 @@ public class ExceptionAdvice {
         Map<String,String>errorMap=new HashMap<>();
         errorMap.put("message",exception.getMessage());
         return errorMap;
+    }
+
+    @ExceptionHandler(NoResourceFoundException.class)
+    public String handleResourceNotFoundException() {
+        return "xxxxxxxx";
     }
 }

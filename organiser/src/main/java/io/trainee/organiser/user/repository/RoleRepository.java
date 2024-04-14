@@ -1,13 +1,15 @@
 package io.trainee.organiser.user.repository;
 
+import io.trainee.organiser.user.constant.UserUrlConstants;
 import io.trainee.organiser.user.entity.RoleEntity;
-import io.trainee.organiser.user.request.UpdateRole;
-import io.trainee.organiser.user.request.CreateRole;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
+import java.util.Optional;
 import java.util.UUID;
 
+@RepositoryRestResource(path = UserUrlConstants.ROLES_URL, collectionResourceRel = UserUrlConstants.ROLES_URL)
 public interface RoleRepository extends JpaRepository<RoleEntity, UUID> {
-    UpdateRole save(UpdateRole role);
-    CreateRole save(CreateRole role);
+
+    Optional<RoleEntity> findOneByName(String roleName);
 }

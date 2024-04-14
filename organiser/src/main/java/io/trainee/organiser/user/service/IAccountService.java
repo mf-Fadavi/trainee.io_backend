@@ -11,7 +11,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface IAccountService {
-    List<AccountView> findAll();
+    List<AccountEntity> findAll();
 
     Optional<AccountEntity> findOneById(UUID accountId) throws UserNotFoundException;
 

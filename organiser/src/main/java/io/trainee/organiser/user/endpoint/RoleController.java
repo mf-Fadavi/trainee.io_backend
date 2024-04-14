@@ -1,44 +1,41 @@
 package io.trainee.organiser.user.endpoint;
 
+import io.trainee.organiser.user.constant.UserUrlConstants;
 import io.trainee.organiser.user.entity.RoleEntity;
+import io.trainee.organiser.user.response.RoleView;
 import io.trainee.organiser.user.service.impl.RoleService;
-import io.trainee.organiser.user.request.CreateRole;
-import io.trainee.organiser.user.request.UpdateRole;
+import io.trainee.organiser.user.request.CreateRoleRequest;
 import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
+import org.springframework.data.rest.webmvc.BasePathAwareController;
+import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@RestController
-@RequestMapping("api/role")
 @AllArgsConstructor
 public class RoleController {
 
     private RoleService roleService;
-    @GetMapping("/list")
+    @GetMapping()
     public List<RoleEntity> findAll() {
         return roleService.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(UserUrlConstants.ENTITY_ID)
     public Optional<RoleEntity> findOneById(@PathVariable("id") UUID supervisorId) {
         return roleService.findOneById(supervisorId);
     }
 
-    @PostMapping("/create")
-    public CreateRole createOne(@RequestBody() CreateRole supervisorInfo) {
+    @PostMapping(UserUrlConstants.ROLE_URL)
+    public RoleView createOne(@RequestBody() CreateRoleRequest supervisorInfo) {
         return roleService.createOne(supervisorInfo);
     }
 
-    @PutMapping("/update/{id}")
-    public UpdateRole updateOne(@RequestBody() UpdateRole supervisorInfo) {
-        return roleService.updateOne(supervisorInfo);
-    }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping(UserUrlConstants.ENTITY_ID)
     public void deleteOne(@PathParam("id") UUID roleId) {
         roleService.deleteOne(roleId);
     }

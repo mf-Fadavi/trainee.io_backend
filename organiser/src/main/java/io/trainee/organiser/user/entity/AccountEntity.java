@@ -33,7 +33,7 @@ public class AccountEntity {
     private String email;
 
     @RestResource(path = "account_role", rel = "account_role")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
     @JoinColumn(name = "roleId", nullable = false)
     private RoleEntity role;
 }

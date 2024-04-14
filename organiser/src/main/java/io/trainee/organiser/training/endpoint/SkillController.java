@@ -3,8 +3,8 @@ package io.trainee.organiser.training.endpoint;
 import io.trainee.organiser.training.constant.TrainingUrlConstant;
 import io.trainee.organiser.training.entity.SkillEntity;
 import io.trainee.organiser.training.service.impl.SkillService;
-import io.trainee.organiser.training.request.CreateSkill;
-import io.trainee.organiser.training.request.UpdateSkill;
+import io.trainee.organiser.training.request.CreateSkillRequest;
+import io.trainee.organiser.training.request.UpdateSkillRequest;
 import jakarta.websocket.server.PathParam;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -14,29 +14,29 @@ import java.util.Optional;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1")
 @AllArgsConstructor
+@RequestMapping("/api/v1" + TrainingUrlConstant.SKILLS_URL)
 public class SkillController {
 
     private SkillService skillService;
 
-    @GetMapping(TrainingUrlConstant.SKILL_URL)
+    @GetMapping()
     public List<SkillEntity> findAll() {
         return skillService.findAll();
     }
 
-    @GetMapping(TrainingUrlConstant.SKILL_URL + TrainingUrlConstant.ENTITY_ID)
+    @GetMapping(TrainingUrlConstant.SKILLS_URL + TrainingUrlConstant.ENTITY_ID)
     public Optional<SkillEntity> findOneById(@PathVariable("id") UUID skillId) {
         return skillService.findOneById(skillId);
     }
 
-    @PostMapping(TrainingUrlConstant.SKILL_URL)
-    public CreateSkill createOne(@RequestBody() CreateSkill skill) {
+    @PostMapping(TrainingUrlConstant.SKILLS_URL)
+    public CreateSkillRequest createOne(@RequestBody() CreateSkillRequest skill) {
         return skillService.createOne(skill);
     }
 
     @PutMapping(TrainingUrlConstant.ENTITY_ID)
-    public UpdateSkill updateOne(@RequestBody() UpdateSkill skill) {
+    public UpdateSkillRequest updateOne(@RequestBody() UpdateSkillRequest skill) {
         return skillService.updateOne(skill);
     }
 
